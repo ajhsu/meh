@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meh: just another image editor</title>
+<meta name="description" content="Meh is just another image viewer and editor for Windows and macOS, with no account, no ads, and no data collection.">
+<meta property="og:title" content="Meh">
+<meta property="og:description" content="Just another image editor. Whatever.">
+<meta property="og:image" content="https://ajhsu.github.io/meh/assets/hero.png">
+<link rel="icon" href="assets/favicon.png">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 17px/1.55 -apple-system, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif; color: #ededef; background: #111113; }
+  a { color: inherit; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  header { padding: 72px 0 40px; display: grid; gap: 18px; justify-items: start; }
+  header img { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 12px 32px #0009; }
+  h1 { font-size: clamp(48px, 9vw, 96px); line-height: 1; margin: 8px 0 0; letter-spacing: -0.02em; }
+  .tag { font-size: clamp(20px, 3vw, 28px); color: #c9c9cf; margin: 0; }
+  .get { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+  .get span { padding: 10px 16px; border-radius: 8px; background: #1f1f22; border: 1px solid #ffffff1f; color: #8b8b92; font-size: 15px; }
+  .shots { display: grid; gap: 24px; padding: 16px 0 56px; }
+  .shots img { width: 100%; border-radius: 12px; border: 1px solid #ffffff14; display: block; }
+  section { padding: 8px 0 40px; }
+  h2 { font-size: 22px; margin: 0 0 12px; }
+  ul { margin: 0; padding-left: 20px; color: #c9c9cf; columns: 2; column-gap: 40px; }
+  li { margin-bottom: 6px; break-inside: avoid; }
+  footer { border-top: 1px solid #ffffff14; padding: 28px 0 48px; color: #8b8b92; font-size: 14px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  @media (max-width: 640px) { ul { columns: 1; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="assets/icon.png" alt="Meh app icon">
+    <h1>Meh</h1>
+    <p class="tag">Just another image editor. Whatever.</p>
+    <div class="get"><span>Microsoft Store: soon</span><span>Mac App Store: soon</span></div>
+  </header>
+
+  <div class="shots">
+    <img src="assets/screenshots/01-view-light.png" alt="Just another image editor. It opens your images fast and keeps the tools out of the way.">
+    <img src="assets/screenshots/02-markup-dark.png" alt="Draw on things. Pen, highlighter, shapes, and text, editable until you save.">
+    <img src="assets/screenshots/03-palette-dark.png" alt="Type to find anything. Click the more button and type, and every command is a few letters away.">
+    <img src="assets/screenshots/05-stitch-light.png" alt="Stitch images together. Side by side or stacked, with a live preview.">
+  </div>
+
+  <section>
+    <h2>What it does</h2>
+    <ul>
+      <li>Opens PNG, JPEG, WebP, TIFF, BMP, ICO, QOI, TGA, and PNM files</li>
+      <li>Crop, rotate, flip, resize, and stitch</li>
+      <li>Pen, highlighter, shapes, arrows, text, and stickers</li>
+      <li>Measure in pixels or real units</li>
+      <li>Undo and redo for everything</li>
+      <li>A file size estimate before you save</li>
+      <li>Keeps photo details, or removes the location</li>
+      <li>A command palette and a shortcut for every command</li>
+      <li>Light and dark themes</li>
+      <li>Windows 10 and 11 (Arm and x64), and macOS</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What it doesn't do</h2>
+    <ul>
+      <li>No account, no ads, no data collection</li>
+      <li>No internet connection</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>© 2026 AJ.H</span>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="https://github.com/ajhsu/meh/issues/new/choose">Report a bug</a>
+    <a href="https://github.com/ajhsu/meh/blob/main/assets/PHOTO-CREDITS.md">Photo credits</a>
+  </footer>
+</div>
+</body>
+</html>
