@@ -29,7 +29,7 @@ img { display: block; max-width: 100%; height: auto; }
 .foot a { text-decoration: none; }
 .foot a:hover { color: var(--text); }
 
-/* The home page. */
+/* The home page: the name, and one large capture. */
 .hero { text-align: center; padding: 80px 24px 64px; }
 .hero .icon { width: 104px; height: 104px; margin: 0 auto 28px; filter: drop-shadow(0 12px 24px #00000040); }
 h1 { margin: 0; font: 700 clamp(64px, 10vw, 112px)/0.95 var(--display); letter-spacing: -0.04em; }
@@ -39,28 +39,309 @@ h1 { margin: 0; font: 700 clamp(64px, 10vw, 112px)/0.95 var(--display); letter-s
   background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 1px 2px #0000000d; font-size: 15px; font-weight: 600; }
 .get em { font-style: normal; font-weight: 400; color: var(--muted); }
 .fine { margin: 16px 0 0; font-size: 13px; color: var(--muted); }
-
-.stage { position: relative; isolation: isolate; padding-bottom: 96px; }
+.stage { position: relative; isolation: isolate; padding-bottom: 72px; }
 .stage::before { content: ""; position: absolute; inset: 38% 0 0; background: var(--band); z-index: -1; }
 .stage img { border-radius: 14px; box-shadow: var(--lift), 0 0 0 1px var(--line); }
 
 .eyebrow { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 h2 { margin: 0; max-width: 680px; font: 700 clamp(28px, 3.6vw, 40px)/1.15 var(--display); letter-spacing: -0.02em; }
-.feats { padding-top: 96px; }
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 56px 40px; margin-top: 48px; }
-figure { margin: 0; }
-figure img { border-radius: 10px; box-shadow: 0 0 0 1px var(--line), 0 12px 32px #0000001f; }
-figcaption { margin-top: 16px; max-width: 440px; color: var(--muted); }
-figcaption b { display: block; margin-bottom: 4px; color: var(--text); font: 600 19px/1.3 var(--display); }
-
-.lists { display: grid; grid-template-columns: 3fr 2fr; gap: 64px; padding-top: 112px; padding-bottom: 112px; }
 h3 { margin: 0 0 16px; font: 600 19px/1.3 var(--display); }
-.all { margin: 0; padding: 0; list-style: none; columns: 2; column-gap: 32px; }
-.all li { padding: 11px 0; border-top: 1px solid var(--line); break-inside: avoid; }
+
+/* The lead section: speed and size, with the startup measured on a real laptop. */
+.lead { padding-top: 96px; padding-bottom: 104px; text-align: center; }
+.lead h2 { margin: 0 auto; }
+.lead .intro { max-width: 640px; margin: 16px auto 0; font-size: 18px; color: var(--muted); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 48px 0 40px; padding: 0; list-style: none; }
+.stats li { padding: 22px 16px; border-radius: 14px; background: var(--surface); box-shadow: 0 0 0 1px var(--line); font-size: 14px; line-height: 1.4;
+  color: var(--muted); }
+.stats b { display: block; margin-bottom: 8px; font: 700 clamp(30px, 3.6vw, 40px)/1 var(--display); letter-spacing: -0.03em; color: var(--text); }
+.lead .note { max-width: 760px; margin: 18px auto 0; font-size: 13px; }
+
+/* The feature sections: the words on one side and a demo on the other. */
+.feat { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; padding-top: 80px; padding-bottom: 80px;
+  border-top: 1px solid var(--line); content-visibility: auto; contain-intrinsic-size: auto 560px; }
+.feat.flip > .copy { order: 2; }
+.feat h2 { font-size: clamp(28px, 3vw, 36px); }
+.copy > p:not(.eyebrow) { max-width: 460px; margin: 14px 0 0; color: var(--muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 20px 0 0; padding: 0; list-style: none; }
+.chips li { padding: 3px 10px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--line); font-size: 13px; font-weight: 600; }
+
+.closing { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; padding-top: 96px; padding-bottom: 112px; border-top: 1px solid var(--line); }
+.runs { margin: 0; padding: 0; list-style: none; }
+.runs li { padding: 11px 0; border-top: 1px solid var(--line); }
 .nots { margin: 0; padding: 0; list-style: none; }
 .nots li { padding: 4px 0; font: 600 clamp(24px, 3vw, 32px)/1.3 var(--display); letter-spacing: -0.01em; color: var(--muted);
   text-decoration: line-through; text-decoration-thickness: 2px; text-decoration-color: var(--text); }
 .nots + p { margin: 20px 0 0; color: var(--muted); }
+
+/* Demos: CSS only. Each element's resting style is the demo's last step, which shows when the system asks for less motion. */
+@property --ms { syntax: "<integer>"; inherits: false; initial-value: 0; }
+.demo { --t: 8s; position: relative; aspect-ratio: 3 / 2; overflow: hidden; isolation: isolate; border-radius: 14px; background: var(--band);
+  box-shadow: var(--lift), 0 0 0 1px var(--line); }
+.demo * { animation-duration: var(--t); animation-iteration-count: infinite; animation-fill-mode: both; }
+.demo img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.demo svg { position: absolute; z-index: 1; inset: 0; width: 100%; height: 100%; }
+.cap { position: absolute; z-index: 3; left: 0; right: 0; bottom: 14px; display: grid; justify-items: center; margin: 0; }
+.cap > span { grid-area: 1 / 1; padding: 6px 13px; border-radius: 999px; background: #111113d9; color: #fff; font-size: 13px; font-weight: 600;
+  white-space: nowrap; box-shadow: 0 4px 14px #00000040; opacity: 0; }
+.cap > span:last-child { opacity: 1; }
+.cap.n2 > span { animation-name: show2; }
+.cap.n2 > :nth-child(2) { animation-delay: calc(var(--t) * -1 / 2); }
+.cap.n3 > span { animation-name: show3; }
+.cap.n3 > :nth-child(2) { animation-delay: calc(var(--t) * -2 / 3); }
+.cap.n3 > :nth-child(3) { animation-delay: calc(var(--t) * -1 / 3); }
+.cap.n6 > span { animation-name: show6; }
+.cap.n6 > :nth-child(2) { animation-delay: calc(var(--t) * -5 / 6); }
+.cap.n6 > :nth-child(3) { animation-delay: calc(var(--t) * -4 / 6); }
+.cap.n6 > :nth-child(4) { animation-delay: calc(var(--t) * -3 / 6); }
+.cap.n6 > :nth-child(5) { animation-delay: calc(var(--t) * -2 / 6); }
+.cap.n6 > :nth-child(6) { animation-delay: calc(var(--t) * -1 / 6); }
+@keyframes show2 { 0% { opacity: 0; } 2%, 48% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes show3 { 0% { opacity: 0; } 2%, 31.3% { opacity: 1; } 33.3%, 100% { opacity: 0; } }
+@keyframes show6 { 0% { opacity: 0; } 1.5%, 15.2% { opacity: 1; } 16.6%, 100% { opacity: 0; } }
+.keys { position: absolute; z-index: 3; top: 14px; right: 14px; display: flex; gap: 4px; }
+.keys b { min-width: 32px; height: 32px; padding: 0 9px; display: inline-grid; place-items: center; border-radius: 8px; background: var(--surface);
+  color: var(--text); box-shadow: inset 0 -2px 0 #00000026, 0 0 0 1px var(--line), 0 6px 16px #0000002e; font-size: 12px; font-weight: 600; }
+
+/* The start, 10 times slower: the marks come from a real startup report. */
+.boot { --t: 5s; aspect-ratio: auto; max-width: 880px; margin: 0 auto; padding: 56px 28px 20px; display: grid; gap: 22px; text-align: left; }
+.boot .win { position: relative; width: min(100%, 460px); aspect-ratio: 3 / 2; margin: 0 auto; overflow: hidden; border-radius: 10px;
+  background: var(--bg); box-shadow: 0 0 0 1px var(--line), 0 12px 32px #0000002e; animation-name: boot-win; animation-timing-function: linear; }
+.boot .win img { animation-name: boot-photo; animation-timing-function: linear; }
+.boot .clock { --ms: 206; position: absolute; top: 16px; right: 22px; margin: 0; counter-reset: ms var(--ms); font: 700 26px/1 var(--display);
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums; animation-name: boot-clock; animation-timing-function: linear; }
+.boot .clock::after { content: counter(ms) " ms"; }
+.boot .slow { position: absolute; top: 22px; left: 24px; margin: 0; font-size: 12px; color: var(--muted); }
+.tl { position: relative; height: 96px; }
+.tl .bar { position: absolute; left: 0; right: 0; top: 46px; height: 4px; border-radius: 2px; background: var(--line); }
+.tl .bar i { position: absolute; left: 0; top: 0; bottom: 0; width: 82.32%; border-radius: 2px; background: var(--text);
+  animation-name: boot-bar; animation-timing-function: linear; }
+.tl ol { margin: 0; padding: 0; list-style: none; }
+.tl li { position: absolute; transform: translateX(-50%); font-size: 12px; line-height: 1.3; color: var(--muted); text-align: center; white-space: nowrap; }
+.tl li b { display: block; font-size: 13px; color: var(--text); }
+.tl li::before { content: ""; position: absolute; left: 50%; width: 1px; height: 8px; background: var(--muted); }
+.tl .m1 { left: 10.68%; top: 58px; }
+.tl .m2 { left: 40.88%; bottom: 58px; }
+.tl .m3 { left: 70.16%; top: 58px; }
+.tl .m4 { left: 82.32%; bottom: 58px; }
+.tl .m1::before, .tl .m3::before { top: -8px; }
+.tl .m2::before, .tl .m4::before { bottom: -8px; }
+@keyframes boot-bar { 0% { width: 0; opacity: 1; } 41.16%, 92% { width: 82.32%; opacity: 1; } 97%, 100% { width: 82.32%; opacity: 0; } }
+@keyframes boot-win { 0%, 35.07% { opacity: 0; } 35.08%, 92% { opacity: 1; } 97%, 100% { opacity: 0; } }
+@keyframes boot-photo { 0%, 41.15% { opacity: 0; } 41.16%, 100% { opacity: 1; } }
+@keyframes boot-clock { 0% { --ms: 0; } 41.16%, 100% { --ms: 206; } }
+
+/* Crop: drag the edges in, then Enter. */
+.crop > img { transform: scale(1.4286); transform-origin: 40% 46.67%; animation-name: crop-zoom; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.crop .cf { position: absolute; z-index: 1; inset: 14% 18% 16% 12%; opacity: 0; outline: 1.5px solid #fff; box-shadow: 0 0 0 100vmax #0000008c;
+  animation-name: crop-frame; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.crop .cf i { position: absolute; width: 16px; height: 16px; border: 0 solid #fff; }
+.crop .cf i:nth-of-type(1) { left: -3px; top: -3px; border-width: 3px 0 0 3px; }
+.crop .cf i:nth-of-type(2) { right: -3px; top: -3px; border-width: 3px 3px 0 0; }
+.crop .cf i:nth-of-type(3) { left: -3px; bottom: -3px; border-width: 0 0 3px 3px; }
+.crop .cf i:nth-of-type(4) { right: -3px; bottom: -3px; border-width: 0 3px 3px 0; }
+.crop .g { position: absolute; inset: 0; opacity: 0; animation-name: crop-grid;
+  background:
+    linear-gradient(#ffffff59, #ffffff59) 33.33% 0 / 1px 100% no-repeat, linear-gradient(#ffffff59, #ffffff59) 66.66% 0 / 1px 100% no-repeat,
+    linear-gradient(#ffffff59, #ffffff59) 0 33.33% / 100% 1px no-repeat, linear-gradient(#ffffff59, #ffffff59) 0 66.66% / 100% 1px no-repeat; }
+.crop .sz { position: absolute; right: 8px; bottom: 8px; margin: 0; padding: 2px 8px; border-radius: 6px; background: #111113d9; color: #fff;
+  font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; animation-name: crop-size; }
+.crop .keys { opacity: 0; animation-name: crop-key; }
+@keyframes crop-frame { 0% { inset: 0; opacity: 0; } 6% { inset: 0; opacity: 1; } 30%, 54% { inset: 14% 18% 16% 12%; opacity: 1; }
+  58%, 100% { inset: 14% 18% 16% 12%; opacity: 0; } }
+@keyframes crop-grid { 0%, 6% { opacity: 0; } 9%, 28% { opacity: 1; } 34%, 100% { opacity: 0; } }
+@keyframes crop-size { 0%, 29% { opacity: 0; } 32%, 54% { opacity: 1; } 57%, 100% { opacity: 0; } }
+@keyframes crop-zoom { 0%, 56% { transform: scale(1); } 64%, 90% { transform: scale(1.4286); } 97%, 100% { transform: scale(1); } }
+@keyframes crop-key { 0%, 47% { opacity: 0; transform: translateY(6px); } 50% { opacity: 1; transform: none; } 52% { transform: translateY(2px) scale(0.94); }
+  54%, 70% { opacity: 1; transform: none; } 74%, 100% { opacity: 0; transform: none; } }
+
+/* Rotate right, flip, then resize to half. */
+.turn { --t: 9s; }
+.turn > img { transform: rotate(0deg) scale(-0.5, 0.5); animation-name: turn-img; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+@keyframes turn-img {
+  0% { opacity: 0; transform: rotate(-90deg) scale(0.6667, 0.6667); }
+  3%, 8% { opacity: 1; transform: rotate(-90deg) scale(0.6667, 0.6667); }
+  13%, 38% { transform: rotate(0deg) scale(1, 1); }
+  44%, 64% { transform: rotate(0deg) scale(-1, 1); }
+  71%, 92% { opacity: 1; transform: rotate(0deg) scale(-0.5, 0.5); }
+  97%, 100% { opacity: 0; transform: rotate(0deg) scale(-0.5, 0.5); }
+}
+
+/* Mark up: pen, highlighter, text, arrow, and a sticker, one after another. */
+.draw { --t: 12s; }
+.draw .pen { fill: none; stroke: #ff3b30; stroke-width: 16; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1;
+  animation-name: draw-pen; animation-timing-function: ease-in-out; }
+.draw .hl { fill: none; stroke: #ffd60a; stroke-opacity: 0.85; stroke-width: 96; stroke-linecap: round; stroke-dasharray: 1; animation-name: draw-hl; }
+.draw .label { font: 700 74px var(--ui); fill: #121212; animation-name: draw-text; }
+.draw .arrow { fill: none; stroke: #fff; stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; animation-name: draw-arrow; }
+.draw .arrow.under { stroke: #000; stroke-opacity: 0.3; stroke-width: 22; }
+.draw .sticker { font: 130px "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif; transform-box: fill-box; transform-origin: center;
+  animation-name: draw-sticker; }
+@keyframes draw-pen { 0%, 1.5% { stroke-dashoffset: 1; opacity: 1; } 12%, 95% { stroke-dashoffset: 0; opacity: 1; } 99%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes draw-hl { 0%, 18% { stroke-dashoffset: 1; opacity: 1; } 25%, 95% { stroke-dashoffset: 0; opacity: 1; } 99%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes draw-text { 0%, 35% { opacity: 0; } 39%, 95% { opacity: 1; } 99%, 100% { opacity: 0; } }
+@keyframes draw-arrow { 0%, 52% { stroke-dashoffset: 1; opacity: 1; } 58%, 95% { stroke-dashoffset: 0; opacity: 1; } 99%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes draw-sticker { 0%, 68% { opacity: 0; transform: scale(0); } 70.5% { opacity: 1; transform: scale(1.2); } 72%, 95% { opacity: 1; transform: scale(1); }
+  99%, 100% { opacity: 0; transform: scale(1); } }
+
+/* Paste on top, move and resize, copy. */
+.paste { --t: 9s; }
+.paste .obj { position: absolute; z-index: 1; left: 30%; top: 30%; width: 40%; height: 40%; transform: translate(80%, 70%) scale(0.75); transform-origin: 0 0;
+  outline: 1.5px solid #fff; box-shadow: 0 10px 30px #0000006b; animation-name: paste-obj; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.paste .obj i { position: absolute; width: 10px; height: 10px; opacity: 0; background: #fff; box-shadow: 0 0 0 1.5px #18181b; animation-name: paste-handles; }
+.paste .obj i:nth-of-type(1) { left: -5px; top: -5px; }
+.paste .obj i:nth-of-type(2) { right: -5px; top: -5px; }
+.paste .obj i:nth-of-type(3) { left: -5px; bottom: -5px; }
+.paste .obj i:nth-of-type(4) { right: -5px; bottom: -5px; }
+.paste .k1 { opacity: 0; animation-name: paste-k1; }
+.paste .k2 { animation-name: paste-k2; }
+.paste::after { content: ""; position: absolute; z-index: 2; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 3px #fff; opacity: 0;
+  animation: paste-flash var(--t) infinite both; }
+@keyframes paste-obj { 0%, 3% { opacity: 0; transform: scale(0.92); } 7%, 36% { opacity: 1; transform: none; }
+  52%, 95% { opacity: 1; transform: translate(80%, 70%) scale(0.75); } 99%, 100% { opacity: 0; transform: translate(80%, 70%) scale(0.75); } }
+@keyframes paste-handles { 0%, 4% { opacity: 0; } 7%, 62% { opacity: 1; } 66%, 100% { opacity: 0; } }
+@keyframes paste-k1 { 0% { opacity: 0; transform: none; } 2% { opacity: 1; transform: none; } 3.5% { transform: translateY(2px) scale(0.94); }
+  5%, 28% { opacity: 1; transform: none; } 32%, 100% { opacity: 0; transform: none; } }
+@keyframes paste-k2 { 0%, 66% { opacity: 0; transform: none; } 68% { opacity: 1; transform: none; } 70% { transform: translateY(2px) scale(0.94); }
+  72%, 92% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+@keyframes paste-flash { 0%, 70% { opacity: 0; } 72% { opacity: 1; } 80%, 100% { opacity: 0; } }
+
+/* Measure in pixels, then in centimeters after Set scale. */
+.measure .ml { stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 1; filter: drop-shadow(0 1px 2px #00000099);
+  animation-name: meas-line; animation-timing-function: ease-in-out; }
+.measure circle { fill: #fff; stroke: #18181b; stroke-width: 2; }
+.measure .ma { animation-name: meas-a; }
+.measure .mb { animation-name: meas-b; }
+.mlabel { position: absolute; z-index: 2; left: 49%; top: 57%; transform: translate(-50%, -100%); display: grid; margin: 0; padding: 4px 10px;
+  border-radius: 8px; background: #111113e6; color: #fff; font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap;
+  animation-name: meas-box; }
+.mlabel span { grid-area: 1 / 1; }
+.mlabel span:first-child { opacity: 0; animation-name: meas-l1; }
+.mlabel span:last-child { animation-name: meas-l2; }
+@keyframes meas-line { 0%, 4% { stroke-dashoffset: 1; opacity: 1; } 18%, 93% { stroke-dashoffset: 0; opacity: 1; } 98%, 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes meas-a { 0%, 3% { opacity: 0; } 4%, 93% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes meas-b { 0%, 17% { opacity: 0; } 18%, 93% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes meas-box { 0%, 18% { opacity: 0; } 20%, 93% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes meas-l1 { 0%, 52% { opacity: 1; } 54%, 100% { opacity: 0; } }
+@keyframes meas-l2 { 0%, 52% { opacity: 0; } 54%, 100% { opacity: 1; } }
+
+/* Stitch: side by side, then stacked. */
+.stitch img { top: 25%; left: 25%; right: auto; bottom: auto; width: 50%; height: 50%; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.stitch .sa { transform: translate(0, -50%); animation-name: stitch-a; }
+.stitch .sb { transform: translate(0, 50%); animation-name: stitch-b; }
+@keyframes stitch-a { 0% { opacity: 0; transform: translate(-80%, 0); } 6% { opacity: 1; } 14%, 44% { transform: translate(-50%, 0); }
+  56%, 93% { opacity: 1; transform: translate(0, -50%); } 98%, 100% { opacity: 0; transform: translate(0, -50%); } }
+@keyframes stitch-b { 0% { opacity: 0; transform: translate(80%, 0); } 6% { opacity: 1; } 14%, 44% { transform: translate(50%, 0); }
+  56%, 93% { opacity: 1; transform: translate(0, 50%); } 98%, 100% { opacity: 0; transform: translate(0, 50%); } }
+
+/* The command palette: type, pick, Enter, and the photo turns. */
+.find { --t: 9s; }
+.find > img { animation-name: find-img; animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.find .pal { position: absolute; z-index: 2; right: 6%; bottom: 17%; width: 56%; padding: 6px; border-radius: 10px; background: var(--surface);
+  color: var(--text); box-shadow: 0 0 0 1px var(--line), 0 16px 40px #0000004d; font-size: 13px; animation-name: find-pal; }
+.find .q { display: flex; align-items: center; gap: 8px; height: 32px; margin-bottom: 4px; padding: 0 9px; border-radius: 7px; background: var(--band); }
+.find .q svg { position: static; flex: none; width: 14px; height: 14px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; }
+.find .typed { display: grid; }
+.find .typed span { grid-area: 1 / 1; white-space: pre; opacity: 0; }
+.find .typed span:last-child { opacity: 1; }
+.find .typed span::after { content: ""; display: inline-block; width: 1.5px; height: 15px; margin-left: 1px; vertical-align: -3px; background: var(--text); }
+.find .typed span:nth-child(1) { animation-name: find-t0; }
+.find .typed span:nth-child(2) { animation-name: find-t1; }
+.find .typed span:nth-child(3) { animation-name: find-t2; }
+.find .typed span:nth-child(4) { animation-name: find-t3; }
+.find .lists { display: grid; }
+.find ul { grid-area: 1 / 1; margin: 0; padding: 0; list-style: none; }
+.find li { display: flex; align-items: center; height: 30px; padding: 0 9px; border-radius: 6px; }
+.find li kbd { margin-left: auto; font: 600 11px var(--ui); color: var(--muted); }
+.find .la { opacity: 0; animation-name: find-la; }
+.find .lb { animation-name: find-lb; }
+.find .lb li:nth-child(1) { animation-name: find-hot1; }
+.find .lb li:nth-child(2) { background: var(--line); animation-name: find-hot2; }
+.find .keys { animation-name: find-key; }
+@keyframes find-img { 0% { opacity: 0; transform: none; } 2%, 72% { opacity: 1; transform: none; } 78%, 94% { opacity: 1; transform: rotate(90deg) scale(0.6667); }
+  98%, 100% { opacity: 0; transform: rotate(90deg) scale(0.6667); } }
+@keyframes find-pal { 0% { opacity: 0; transform: none; } 2%, 68% { opacity: 1; transform: none; } 72%, 100% { opacity: 0; transform: translateY(8px); } }
+@keyframes find-t0 { 0%, 5.9% { opacity: 1; } 6%, 100% { opacity: 0; } }
+@keyframes find-t1 { 0%, 5.9% { opacity: 0; } 6%, 8.9% { opacity: 1; } 9%, 100% { opacity: 0; } }
+@keyframes find-t2 { 0%, 8.9% { opacity: 0; } 9%, 11.9% { opacity: 1; } 12%, 100% { opacity: 0; } }
+@keyframes find-t3 { 0%, 11.9% { opacity: 0; } 12%, 100% { opacity: 1; } }
+@keyframes find-la { 0%, 11.9% { opacity: 1; } 12%, 100% { opacity: 0; } }
+@keyframes find-lb { 0%, 11.9% { opacity: 0; } 12%, 100% { opacity: 1; } }
+@keyframes find-hot1 { 0%, 11.9% { background: transparent; } 12%, 35.9% { background: var(--line); } 36%, 100% { background: transparent; } }
+@keyframes find-hot2 { 0%, 35.9% { background: transparent; } 36%, 100% { background: var(--line); } }
+@keyframes find-key { 0%, 64% { opacity: 0; transform: translateY(6px); } 66% { opacity: 1; transform: none; } 68% { transform: translateY(2px) scale(0.94); }
+  70%, 84% { opacity: 1; transform: none; } 88%, 100% { opacity: 0; transform: none; } }
+
+/* Undo three marks one by one, then redo them. */
+.undo { --t: 12s; }
+.undo .u1 { fill: none; stroke: #ff3b30; stroke-width: 7; animation-name: undo-1; }
+.undo .u2 { fill: none; stroke: #ffd60a; stroke-opacity: 0.85; stroke-width: 34; stroke-linecap: round; animation-name: undo-2; }
+.undo .u3 { fill: none; stroke: #fff; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 1px 2px #00000099); animation-name: undo-3; }
+.undo .ka { opacity: 0; animation-name: undo-ka; }
+.undo .kb { animation-name: undo-kb; }
+@keyframes undo-1 { 0%, 3.9% { opacity: 0; } 4%, 55.9% { opacity: 1; } 56%, 70.9% { opacity: 0; } 71%, 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes undo-2 { 0%, 12.9% { opacity: 0; } 13%, 46.9% { opacity: 1; } 47%, 78.9% { opacity: 0; } 79%, 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes undo-3 { 0%, 21.9% { opacity: 0; } 22%, 37.9% { opacity: 1; } 38%, 86.9% { opacity: 0; } 87%, 95% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes undo-ka { 0%, 33% { opacity: 0; transform: none; } 35%, 37.5% { opacity: 1; transform: none; } 38% { transform: translateY(2px) scale(0.94); }
+  39%, 46.5% { transform: none; } 47% { transform: translateY(2px) scale(0.94); } 48%, 55.5% { transform: none; } 56% { transform: translateY(2px) scale(0.94); }
+  57%, 62% { opacity: 1; transform: none; } 65%, 100% { opacity: 0; transform: none; } }
+@keyframes undo-kb { 0%, 67% { opacity: 0; transform: none; } 69%, 70.5% { opacity: 1; transform: none; } 71% { transform: translateY(2px) scale(0.94); }
+  72%, 78.5% { transform: none; } 79% { transform: translateY(2px) scale(0.94); } 80%, 86.5% { transform: none; } 87% { transform: translateY(2px) scale(0.94); }
+  88%, 93% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: none; } }
+
+/* Save: the estimate follows the quality, and the location switch turns on. */
+.save .sheet { position: absolute; z-index: 2; left: 50%; top: 45%; width: 66%; transform: translate(-50%, -50%); padding: 6px 14px; border-radius: 12px;
+  background: var(--surface); color: var(--text); box-shadow: 0 0 0 1px var(--line), 0 16px 40px #0000004d; font-size: 13px; animation-name: save-sheet; }
+.save .row { display: flex; align-items: center; gap: 10px; height: 34px; margin: 0; }
+.save .row + .row { border-top: 1px solid var(--line); }
+.save .row > span { flex: 1; color: var(--muted); }
+.save .slider { position: relative; flex: 0 0 36%; height: 4px; border-radius: 2px; background: var(--line); }
+.save .thumb { position: absolute; top: 50%; left: 70%; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; background: var(--text);
+  animation-name: save-thumb; }
+.save .val { display: grid; justify-items: end; min-width: 24px; margin: 0; font-variant-numeric: tabular-nums; }
+.save .val > b { grid-area: 1 / 1; opacity: 0; }
+.save .val > b:last-child { opacity: 1; }
+.save .val > b:nth-child(1) { animation-name: save-v1; }
+.save .val > b:nth-child(2) { animation-name: save-v2; }
+.save .val > b:nth-child(3) { animation-name: save-v3; }
+.save .sw { position: relative; flex: none; width: 34px; height: 20px; border-radius: 10px; background: var(--text); }
+.save .sw::after { content: ""; position: absolute; top: 3px; left: 17px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); }
+.save .sw.loc { animation-name: save-sw; }
+.save .sw.loc::after { animation: save-knob var(--t) infinite both; }
+@keyframes save-sheet { 0% { opacity: 0; } 3%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+@keyframes save-thumb { 0%, 8% { left: 92%; } 14% { left: 80%; } 20%, 100% { left: 70%; } }
+@keyframes save-v1 { 0%, 10.9% { opacity: 1; } 11%, 100% { opacity: 0; } }
+@keyframes save-v2 { 0%, 10.9% { opacity: 0; } 11%, 16.9% { opacity: 1; } 17%, 100% { opacity: 0; } }
+@keyframes save-v3 { 0%, 16.9% { opacity: 0; } 17%, 100% { opacity: 1; } }
+@keyframes save-sw { 0%, 58% { background: var(--line); } 60%, 100% { background: var(--text); } }
+@keyframes save-knob { 0%, 58% { left: 3px; } 60%, 100% { left: 17px; } }
+
+/* Files: the arrow key steps through five photos in a folder. */
+.files > img { opacity: 0; animation-name: files-show; }
+.files > img:first-of-type { opacity: 1; }
+.files .tab { position: absolute; z-index: 2; top: 12px; left: 12px; display: grid; padding: 5px 12px; border-radius: 8px; background: var(--surface);
+  color: var(--text); box-shadow: 0 0 0 1px var(--line), 0 4px 12px #00000033; font-size: 12px; font-weight: 600; }
+.files .tab span { grid-area: 1 / 1; opacity: 0; animation-name: files-show; }
+.files .tab span:first-child { opacity: 1; }
+.files > img:nth-of-type(2), .files .tab span:nth-child(2) { animation-delay: -6.4s; }
+.files > img:nth-of-type(3), .files .tab span:nth-child(3) { animation-delay: -4.8s; }
+.files > img:nth-of-type(4), .files .tab span:nth-child(4) { animation-delay: -3.2s; }
+.files > img:nth-of-type(5), .files .tab span:nth-child(5) { animation-delay: -1.6s; }
+.files .keys { animation-name: files-key; animation-duration: 1.6s; }
+@keyframes files-show { 0% { opacity: 0; } 2%, 20% { opacity: 1; } 22%, 100% { opacity: 0; } }
+@keyframes files-key { 0%, 100% { transform: none; } 4% { transform: translateY(2px) scale(0.94); } 10% { transform: none; } }
+
+/* Light and dark: a wipe between the two themes. */
+.themes .dk { clip-path: inset(0 0 0 50%); animation-name: themes-wipe; animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+.themes .edge { position: absolute; z-index: 2; top: 0; bottom: 0; left: 50%; width: 2px; margin-left: -1px; background: #fff; box-shadow: 0 0 12px #00000080;
+  animation-name: themes-edge; animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1); }
+@keyframes themes-wipe { 0%, 12% { clip-path: inset(0 0 0 100%); } 38%, 62% { clip-path: inset(0 0 0 0); } 88%, 100% { clip-path: inset(0 0 0 100%); } }
+@keyframes themes-edge { 0%, 12% { left: 100%; opacity: 0; } 14%, 36% { opacity: 1; } 38%, 62% { left: 0; opacity: 0; } 64%, 86% { opacity: 1; }
+  88%, 100% { left: 100%; opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .demo *, .demo::after, .demo *::after { animation: none !important; }
+}
 
 /* The privacy policy and the 404 page. */
 .doc { max-width: 728px; padding-top: 56px; padding-bottom: 112px; }
@@ -70,8 +351,23 @@ h3 { margin: 0 0 16px; font: 600 19px/1.3 var(--display); }
 
 @media (max-width: 760px) {
   .hero { padding-top: 48px; }
-  .grid, .lists { grid-template-columns: 1fr; }
-  .lists { gap: 48px; padding-top: 80px; padding-bottom: 80px; }
-  .all { columns: 1; }
+  .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .feat, .closing { grid-template-columns: 1fr; gap: 28px; padding-top: 56px; padding-bottom: 56px; }
+  .feat.flip > .copy { order: 0; }
+  .closing { gap: 48px; }
+  .boot { padding: 48px 14px 14px; }
+  .boot .clock { top: 14px; right: 14px; font-size: 20px; }
+  .boot .slow { top: 18px; left: 14px; }
+  .tl li { font-size: 11px; }
+  .tl li b { font-size: 12px; }
+  .cap { bottom: 10px; }
+  .cap > span { padding: 5px 11px; font-size: 12px; }
+  .keys { top: 10px; right: 10px; }
+  .keys b { min-width: 28px; height: 28px; padding: 0 7px; font-size: 11px; }
+  .find .pal { right: 4%; bottom: 21%; width: 74%; padding: 4px; font-size: 11px; }
+  .find .q { height: 24px; }
+  .find li { height: 22px; }
+  .save .sheet { width: 86%; padding: 2px 10px; font-size: 11px; }
+  .save .row { height: 24px; }
   .doc { padding-top: 32px; padding-bottom: 80px; }
 }

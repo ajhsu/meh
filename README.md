@@ -16,15 +16,17 @@ The screenshots show public-domain photos from the US National Park Service; see
 Cloudflare hosts the site as static files on Workers, the current form of Cloudflare Pages.
 
 - `public`: the site. Cloudflare serves this folder.
-  - `index.html`: the home page, in the Quiet Mono design: the app's own grays. Every page follows
-    the light or dark theme of the system.
+  - `index.html`: the home page, in the Quiet Mono design: the app's own grays. Speed and size come
+    first, with numbers measured on a real laptop. Then each feature has its own section with a demo.
+    Every page follows the light or dark theme of the system.
   - `privacy.html`: the privacy policy, at https://meh-app.com/privacy.
   - `404.html`: the page for a missing address.
   - `style.css`: the styles of all three pages.
   - `assets`: the icon (`icon.svg`, and `favicon.png` for older browsers), the app captures in
-    `screenshots`, and `hero.png`, the picture for link previews. The captures are JPEG copies of the
-    plain captures in the app's store materials.
+    `screenshots`, the photos for the feature demos in `photos`, and `hero.png`, the picture for link
+    previews. The captures and the photos are JPEG copies of the store materials in the app repo.
   - `_headers`: the security headers. The site has no scripts and loads nothing from other websites.
+    The feature demos are CSS animations, and they stop when the system asks for less motion.
 - `wrangler.jsonc`: the Worker `meh-app`. It serves `public` on meh-app.com, with no workers.dev
   address and no request logs.
 - `www`: the Worker `meh-app-www`. It redirects www.meh-app.com to meh-app.com, because static files

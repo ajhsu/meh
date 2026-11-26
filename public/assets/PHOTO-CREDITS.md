@@ -1,6 +1,6 @@
 # Photo credits
 
-The store screenshots show these photos. All are public domain: works of the US National Park Service,
+The store screenshots and the demos on the website show these photos. All are public domain: works of the US National Park Service,
 a federal agency, so they carry no copyright in the United States (17 U.S.C. § 105). Wikimedia Commons
 hosts them; each link has the original source.
 
