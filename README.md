@@ -16,10 +16,14 @@ The screenshots show public-domain photos from the US National Park Service; see
 Cloudflare hosts the site as static files on Workers, the current form of Cloudflare Pages.
 
 - `public`: the site. Cloudflare serves this folder.
-  - `index.html` and `home.css`: the home page.
-  - `privacy.html` and `doc.css`: the privacy policy, at https://meh-app.com/privacy.
+  - `index.html`: the home page, in the Quiet Mono design: the app's own grays. Every page follows
+    the light or dark theme of the system.
+  - `privacy.html`: the privacy policy, at https://meh-app.com/privacy.
   - `404.html`: the page for a missing address.
-  - `assets`: the icon, the screenshots, and `hero.png`, the picture for link previews.
+  - `style.css`: the styles of all three pages.
+  - `assets`: the icon (`icon.svg`, and `favicon.png` for older browsers), the app captures in
+    `screenshots`, and `hero.png`, the picture for link previews. The captures are JPEG copies of the
+    plain captures in the app's store materials.
   - `_headers`: the security headers. The site has no scripts and loads nothing from other websites.
 - `wrangler.jsonc`: the Worker `meh-app`. It serves `public` on meh-app.com, with no workers.dev
   address and no request logs.

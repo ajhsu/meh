@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
 <title>Meh: just another image editor</title>
 <meta name="description" content="Meh is just another image viewer and editor for Windows and macOS, with no account, no ads, and no data collection.">
 <link rel="canonical" href="https://meh-app.com/">
@@ -10,28 +13,64 @@
 <meta property="og:description" content="Just another image editor. Whatever.">
 <meta property="og:url" content="https://meh-app.com/">
 <meta property="og:image" content="https://meh-app.com/assets/hero.png">
-<link rel="icon" href="assets/favicon.png">
-<link rel="stylesheet" href="home.css">
+<link rel="icon" href="assets/favicon.png" sizes="64x64">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <img src="assets/icon.png" alt="Meh app icon">
-    <h1>Meh</h1>
-    <p class="tag">Just another image editor. Whatever.</p>
-    <div class="get"><span>Microsoft Store: soon</span><span>Mac App Store: soon</span></div>
-  </header>
+<div class="wrap top">
+  <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="26" height="26">Meh</a>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="privacy">Privacy</a>
+    <a href="https://github.com/ajhsu/meh/issues/new/choose">Report a bug</a>
+  </nav>
+</div>
 
-  <div class="shots">
-    <img src="assets/screenshots/01-view-light.png" alt="Just another image editor. It opens your images fast and keeps the tools out of the way.">
-    <img src="assets/screenshots/02-markup-dark.png" alt="Draw on things. Pen, highlighter, shapes, and text, editable until you save.">
-    <img src="assets/screenshots/03-palette-dark.png" alt="Type to find anything. Click the more button and type, and every command is a few letters away.">
-    <img src="assets/screenshots/05-stitch-light.png" alt="Stitch images together. Side by side or stacked, with a live preview.">
+<header class="hero">
+  <img class="icon" src="assets/icon.svg" alt="" width="104" height="104">
+  <h1>Meh</h1>
+  <p class="tag">Just another image editor. Whatever.</p>
+  <div class="get"><span>Microsoft Store <em>soon</em></span><span>Mac App Store <em>soon</em></span></div>
+  <p class="fine">Free. No account, no ads, and no data collection.</p>
+</header>
+
+<div class="stage">
+  <div class="wrap">
+    <picture>
+      <source srcset="assets/screenshots/06-view-dark.jpg" media="(prefers-color-scheme: dark)">
+      <img src="assets/screenshots/01-view-light.jpg" width="1920" height="1080" alt="Meh with a photo open">
+    </picture>
   </div>
+</div>
 
-  <section>
-    <h2>What it does</h2>
-    <ul>
+<section class="wrap feats" id="features">
+  <p class="eyebrow">What it does</p>
+  <h2>It opens, crops, marks up, and saves images. That's about it.</h2>
+  <div class="grid">
+    <figure>
+      <img src="assets/screenshots/02-markup-dark.jpg" width="1280" height="720" loading="lazy" alt="A photo with a pen circle, a highlight, and a text note">
+      <figcaption><b>Draw on things.</b>Pen, highlighter, shapes, and text, editable until you save.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/screenshots/03-palette-dark.jpg" width="1280" height="720" loading="lazy" alt="The command palette, open over a photo">
+      <figcaption><b>Type to find anything.</b>Click ⋯ and type, and every command is a few letters away.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/screenshots/05-stitch-light.jpg" width="1280" height="720" loading="lazy" alt="The Stitch dialog with two photos side by side">
+      <figcaption><b>Stitch images together.</b>Side by side or stacked, with a live preview.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/screenshots/04-settings-light.jpg" width="1280" height="720" loading="lazy" alt="The Settings window">
+      <figcaption><b>A few settings.</b>Only the useful ones, and they fit on one screen.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="wrap lists">
+  <div>
+    <h3>Everything it does</h3>
+    <ul class="all">
       <li>Opens PNG, JPEG, WebP, TIFF, BMP, ICO, QOI, TGA, and PNM files</li>
       <li>Crop, rotate, flip, resize, and stitch</li>
       <li>Pen, highlighter, shapes, arrows, text, and stickers</li>
@@ -43,22 +82,19 @@
       <li>Light and dark themes</li>
       <li>Windows 10 and 11 (Arm and x64), and macOS</li>
     </ul>
-  </section>
+  </div>
+  <div>
+    <h3>What it doesn't have</h3>
+    <ul class="nots"><li>Accounts</li><li>Ads</li><li>Data collection</li><li>Internet connection</li></ul>
+    <p>Your images stay on your device. <a href="privacy">Read the privacy policy</a>.</p>
+  </div>
+</section>
 
-  <section>
-    <h2>What it doesn't do</h2>
-    <ul>
-      <li>No account, no ads, no data collection</li>
-      <li>No internet connection</li>
-    </ul>
-  </section>
-
-  <footer>
-    <span>© 2026 AJ.H</span>
-    <a href="privacy">Privacy policy</a>
-    <a href="https://github.com/ajhsu/meh/issues/new/choose">Report a bug</a>
-    <a href="https://github.com/ajhsu/meh/blob/main/public/assets/PHOTO-CREDITS.md">Photo credits</a>
-  </footer>
-</div>
+<footer class="wrap foot">
+  <span>© 2026 AJ.H</span>
+  <a href="privacy">Privacy policy</a>
+  <a href="https://github.com/ajhsu/meh/issues/new/choose">Report a bug</a>
+  <a href="https://github.com/ajhsu/meh/blob/main/public/assets/PHOTO-CREDITS.md">Photo credits</a>
+</footer>
 </body>
 </html>
