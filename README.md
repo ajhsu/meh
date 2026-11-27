@@ -3,6 +3,7 @@
 Just another image viewer and editor for Windows and macOS, with no account, no ads, and no data collection.
 
 - Website: https://meh-app.com/
+- Microsoft Store: https://apps.microsoft.com/detail/9NHWZRF0MXQX
 - Privacy policy: https://meh-app.com/privacy
 - Report a bug or ask for a feature: [open an issue](https://github.com/ajhsu/meh/issues/new/choose)
 

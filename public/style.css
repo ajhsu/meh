@@ -38,6 +38,9 @@ h1 { margin: 0; font: 700 clamp(64px, 10vw, 112px)/0.95 var(--display); letter-s
 .get span { display: inline-flex; align-items: center; gap: 10px; height: 44px; padding: 0 20px; border-radius: 999px;
   background: var(--surface); box-shadow: 0 0 0 1px var(--line), 0 1px 2px #0000000d; font-size: 15px; font-weight: 600; }
 .get em { font-style: normal; font-weight: 400; color: var(--muted); }
+.badge { display: inline-block; border-radius: 5px; }
+.badge img { display: block; width: 161px; height: 44px; }
+.store { margin: 24px 0 0; }
 .fine { margin: 16px 0 0; font-size: 13px; color: var(--muted); }
 .stage { position: relative; isolation: isolate; padding-bottom: 72px; }
 .stage::before { content: ""; position: absolute; inset: 38% 0 0; background: var(--band); z-index: -1; }
