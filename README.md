@@ -27,7 +27,7 @@ Cloudflare hosts the site as static files on Workers, the current form of Cloudf
   - `assets`: the icon (`icon.svg`, and `favicon.png` for older browsers), the app captures in
     `screenshots`, the photos for the feature demos in `photos`, and `hero.png`, the picture for link
     previews. The captures and the photos are JPEG copies of the store materials in the app repo.
-  - `_headers`: the security headers. The site has no scripts and loads nothing from other websites.
+  - `_headers`: the security headers. The only script is the Cloudflare Web Analytics beacon, which Cloudflare adds to each page.
     The feature demos are CSS animations, and they stop when the system asks for less motion.
 - `wrangler.jsonc`: the Worker `meh-app`. It serves `public` on meh-app.com, with no workers.dev
   address and no request logs.
