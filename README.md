@@ -1,6 +1,6 @@
 # Meh
 
-Just another image viewer and editor for Windows and macOS, with no account, no ads, and no data collection.
+Just another image viewer for Windows and macOS, with the everyday edits. No account, no ads, and no data collection.
 
 - Website: https://meh-app.com/
 - Microsoft Store: https://apps.microsoft.com/detail/9NHWZRF0MXQX
@@ -18,8 +18,9 @@ Cloudflare hosts the site as static files on Workers, the current form of Cloudf
 
 - `public`: the site. Cloudflare serves this folder.
   - `index.html`: the home page, in the Quiet Mono design: the app's own grays. Speed and size come
-    first, with numbers measured on a real laptop. Then each feature has its own section with a demo.
-    Every page follows the light or dark theme of the system.
+    first, with numbers measured on a real laptop. Then two chapters, for looking and for the small
+    fixes, give each feature its own section with a demo. Every page follows the light or dark theme
+    of the system.
   - `privacy.html`: the privacy policy, at https://meh-app.com/privacy.
   - `404.html`: the page for a missing address.
   - `style.css`: the styles of all three pages.

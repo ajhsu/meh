@@ -6,11 +6,11 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#111113" media="(prefers-color-scheme: dark)">
-<title>Meh: just another image editor</title>
-<meta name="description" content="Meh is a small, fast image viewer and editor for Windows and macOS: crop, rotate, mark up, measure, and stitch, with no account, no ads, and no data collection.">
+<title>Meh: just another image viewer</title>
+<meta name="description" content="Meh is a fast image viewer for Windows and macOS, with the everyday edits: crop, rotate, resize, mark up, measure, and stitch. No account, no ads, and no data collection.">
 <link rel="canonical" href="https://meh-app.com/">
 <meta property="og:title" content="Meh">
-<meta property="og:description" content="Just another image editor. Whatever.">
+<meta property="og:description" content="Just another image viewer. Whatever.">
 <meta property="og:url" content="https://meh-app.com/">
 <meta property="og:image" content="https://meh-app.com/assets/hero.png">
 <link rel="icon" href="assets/favicon.png" sizes="64x64">
@@ -21,7 +21,7 @@
 <div class="wrap top">
   <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="26" height="26">Meh</a>
   <nav>
-    <a href="#fast">Features</a>
+    <a href="#view">Features</a>
     <a href="privacy">Privacy</a>
     <a href="https://github.com/ajhsu/meh/issues/new/choose">Report a bug</a>
   </nav>
@@ -30,7 +30,8 @@
 <header class="hero">
   <img class="icon" src="assets/icon.svg" alt="" width="104" height="104">
   <h1>Meh</h1>
-  <p class="tag">Just another image editor. Whatever.</p>
+  <p class="tag">Just another image viewer. Whatever.</p>
+  <p class="sub">Opens images fast, and handles the small fixes.</p>
   <div class="get"><a class="badge" href="https://apps.microsoft.com/detail/9NHWZRF0MXQX?referrer=appbadge&amp;mode=full"><img src="assets/ms-badge.svg" alt="Get it from Microsoft" width="161" height="44"></a><span>Mac App Store <em>soon</em></span></div>
   <p class="fine">Free for Windows and Mac. No account, no ads, and no data collection.</p>
 </header>
@@ -70,6 +71,68 @@
     </div>
   </div>
   <p class="note muted">Measured on a Snapdragon X laptop with Windows 11: the release build, warm starts, and the median of 7 runs with a 3840 × 2550 JPEG. With that photo open, Meh used 0 ms of CPU time in 10 idle seconds. The 120 Hz pan test ran on a Mac mini M4. Download sizes are for the Microsoft Store packages.</p>
+</section>
+
+<section class="wrap chapter" id="view">
+  <p class="eyebrow">For looking</p>
+  <h2>An image viewer first.</h2>
+  <p>Open a photo from Explorer or Finder, and it is there. Step through the folder, zoom in close, and read the details.</p>
+</section>
+
+<section class="wrap feat" id="files">
+  <div class="copy">
+    <p class="eyebrow">Files</p>
+    <h2>Opens the images you already have.</h2>
+    <p>Photos turn upright, wide-color photos from phones keep their colors, and very large images stay sharp. The arrow keys step through a folder, and tabs and windows keep several images open at once.</p>
+    <ul class="chips"><li>PNG</li><li>JPEG</li><li>WebP</li><li>TIFF</li><li>BMP</li><li>ICO</li><li>QOI</li><li>TGA</li><li>PNM</li></ul>
+  </div>
+  <div class="demo files" aria-hidden="true">
+    <img src="assets/photos/grand-teton.jpg" alt="" width="1200" height="800" loading="lazy">
+    <img src="assets/photos/teton-autumn.jpg" alt="" width="1000" height="667" loading="lazy">
+    <img src="assets/photos/death-valley-dunes.jpg" alt="" width="1200" height="800" loading="lazy">
+    <img src="assets/photos/death-valley-range.jpg" alt="" width="1000" height="667" loading="lazy">
+    <img src="assets/photos/oolah-valley.jpg" alt="" width="1000" height="664" loading="lazy">
+    <p class="tab"><span>grand-teton.jpg</span><span>teton-autumn.jpg</span><span>death-valley-dunes.jpg</span><span>death-valley-range.jpg</span><span>oolah-valley.jpg</span></p>
+    <div class="keys"><b>→</b></div>
+    <p class="cap"><span>The arrow keys step through the folder</span></p>
+  </div>
+</section>
+
+<section class="wrap feat flip" id="zoom">
+  <div class="copy">
+    <p class="eyebrow">Zoom</p>
+    <h2>Get close. Down to the pixel.</h2>
+    <p>Zoom with Ctrl and the scroll wheel, or pinch on a trackpad, and pan with a scroll or with Space and drag. Large photos stay smooth from the first zoom. The status bar shows the size, the format, and the color under the cursor.</p>
+  </div>
+  <div class="demo zoom" aria-hidden="true">
+    <div class="zv">
+      <img src="assets/photos/grand-teton.jpg" alt="" width="1200" height="800" loading="lazy">
+      <div class="pxl"><img src="assets/photos/grand-teton-400.jpg" alt="" width="240" height="160" loading="lazy"></div>
+    </div>
+    <i class="cross"></i>
+    <p class="sbar"><span>2856 × 1904 px</span><span>1.2 MB</span><span class="fmt">JPEG · 8-bit RGB</span><span class="zl"><b>22 %</b><b>100 %</b><b>400 %</b></span><span class="xy">1250, 330</span><span class="pxc"><i></i>#F4EEF0</span></p>
+    <p class="cap n3"><span>Fit to the window</span><span>Ctrl+scroll zooms in</span><span>Down to the pixel</span></p>
+  </div>
+</section>
+
+<section class="wrap feat" id="themes">
+  <div class="copy">
+    <p class="eyebrow">Light and dark</p>
+    <h2>Light, dark, or whatever your system says.</h2>
+    <p>The grays stay neutral, so your photo is the only color on the screen. Meh follows the system theme, or you can choose one in Settings.</p>
+  </div>
+  <div class="demo themes" aria-hidden="true">
+    <img src="assets/screenshots/01-view-light.jpg" alt="" width="1920" height="1080" loading="lazy">
+    <img class="dk" src="assets/screenshots/06-view-dark.jpg" alt="" width="1920" height="1080" loading="lazy">
+    <i class="edge"></i>
+    <p class="cap"><span>Follows the system, or your choice in Settings</span></p>
+  </div>
+</section>
+
+<section class="wrap chapter" id="edit">
+  <p class="eyebrow">For the small fixes</p>
+  <h2>And it fixes the usual things.</h2>
+  <p>Crop, turn, resize, mark up, measure, and stitch. It is not a full photo editor, though: no layers, no exposure or curves, and no camera RAW files.</p>
 </section>
 
 <section class="wrap feat" id="crop">
@@ -181,39 +244,6 @@
     </div>
     <div class="keys"><b>Enter</b></div>
     <p class="cap n3"><span>Click ⋯ and type</span><span>The arrow keys pick one</span><span>Enter runs it</span></p>
-  </div>
-</section>
-
-<section class="wrap feat flip" id="files">
-  <div class="copy">
-    <p class="eyebrow">Files</p>
-    <h2>Opens the images you already have.</h2>
-    <p>Photos turn upright, wide-color photos from phones keep their colors, and very large images stay sharp. The arrow keys step through a folder, and tabs and windows keep several images open at once.</p>
-    <ul class="chips"><li>PNG</li><li>JPEG</li><li>WebP</li><li>TIFF</li><li>BMP</li><li>ICO</li><li>QOI</li><li>TGA</li><li>PNM</li></ul>
-  </div>
-  <div class="demo files" aria-hidden="true">
-    <img src="assets/photos/grand-teton.jpg" alt="" width="1200" height="800" loading="lazy">
-    <img src="assets/photos/teton-autumn.jpg" alt="" width="1000" height="667" loading="lazy">
-    <img src="assets/photos/death-valley-dunes.jpg" alt="" width="1200" height="800" loading="lazy">
-    <img src="assets/photos/death-valley-range.jpg" alt="" width="1000" height="667" loading="lazy">
-    <img src="assets/photos/oolah-valley.jpg" alt="" width="1000" height="664" loading="lazy">
-    <p class="tab"><span>grand-teton.jpg</span><span>teton-autumn.jpg</span><span>death-valley-dunes.jpg</span><span>death-valley-range.jpg</span><span>oolah-valley.jpg</span></p>
-    <div class="keys"><b>→</b></div>
-    <p class="cap"><span>The arrow keys step through the folder</span></p>
-  </div>
-</section>
-
-<section class="wrap feat" id="themes">
-  <div class="copy">
-    <p class="eyebrow">Light and dark</p>
-    <h2>Light, dark, or whatever your system says.</h2>
-    <p>The grays stay neutral, so your photo is the only color on the screen. Meh follows the system theme, or you can choose one in Settings.</p>
-  </div>
-  <div class="demo themes" aria-hidden="true">
-    <img src="assets/screenshots/01-view-light.jpg" alt="" width="1920" height="1080" loading="lazy">
-    <img class="dk" src="assets/screenshots/06-view-dark.jpg" alt="" width="1920" height="1080" loading="lazy">
-    <i class="edge"></i>
-    <p class="cap"><span>Follows the system, or your choice in Settings</span></p>
   </div>
 </section>
 
